@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening Hours UI</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="widget-container">
+        <h3>Opening Hours</h3>
+        
+        <label class="checkbox-row">
+            <input type="checkbox" id="open-247"> Open 24/7
+        </label>
+
+        <div id="schedules-container">
+            
+            <div class="schedule-block">
+                <div class="days-row">
+                    <button class="day-btn active">Mo</button>
+                    <button class="day-btn active">Tu</button>
+                    <button class="day-btn active">We</button>
+                    <button class="day-btn active">Th</button>
+                    <button class="day-btn active">Fr</button>
+                    <button class="day-btn">Sa</button>
+                    <button class="day-btn">Su</button>
+                </div>
+                <div class="times-row">
+                    <input type="time" class="time-input" value="09:00">
+                    <span class="time-separator">to</span>
+                    <input type="time" class="time-input" value="17:00">
+                </div>
+            </div>
+
+            <div class="schedule-block">
+                <div class="days-row">
+                    <button class="day-btn">Mo</button>
+                    <button class="day-btn">Tu</button>
+                    <button class="day-btn">We</button>
+                    <button class="day-btn">Th</button>
+                    <button class="day-btn">Fr</button>
+                    <button class="day-btn active">Sa</button>
+                    <button class="day-btn active">Su</button>
+                </div>
+                <div class="times-row">
+                    <input type="time" class="time-input" value="10:00">
+                    <span class="time-separator">to</span>
+                    <input type="time" class="time-input" value="14:00">
+                </div>
+            </div>
+
+        </div>
+
+        <button class="add-btn" id="add-schedule">+ Add another schedule</button>
+
+        <div class="output-label">Generated Tag:</div>
+        <div class="output-box" id="output-string">Mo-Fr 09:00-17:00; Sa-Su 10:00-14:00</div>
+    </div>
+
+</body>
+</html>
