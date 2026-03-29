@@ -8,58 +8,162 @@
     <link rel="icon" type="image/webp" href="logo.webp">
 </head>
 <body>
-
-    <div class="widget-container">
-        <h3>Opening Hours</h3>
-        
-        <label class="checkbox-row">
-            <input type="checkbox" id="open-247"> Open 24/7
-        </label>
-
-        <div id="schedules-container">
-            
-            <div class="schedule-block">
-                <div class="days-row">
-                    <button class="day-btn active">Mo</button>
-                    <button class="day-btn active">Tu</button>
-                    <button class="day-btn active">We</button>
-                    <button class="day-btn active">Th</button>
-                    <button class="day-btn active">Fr</button>
-                    <button class="day-btn">Sa</button>
-                    <button class="day-btn">Su</button>
-                </div>
-                <div class="times-row">
-                    <input type="time" class="time-input" value="09:00">
-                    <span class="time-separator">to</span>
-                    <input type="time" class="time-input" value="17:00">
-                </div>
+    <div class="app-shell">
+        <aside class="sidebar" id="hoursAccordion">
+            <div class="sidebar-header">
+                <div class="feature-pill">Whole Foods Market</div>
+                <p class="feature-meta">Supermarket · #5600 Magazine Street</p>
             </div>
 
-            <div class="schedule-block">
-                <div class="days-row">
-                    <button class="day-btn">Mo</button>
-                    <button class="day-btn">Tu</button>
-                    <button class="day-btn">We</button>
-                    <button class="day-btn">Th</button>
-                    <button class="day-btn">Fr</button>
-                    <button class="day-btn active">Sa</button>
-                    <button class="day-btn active">Su</button>
+            <section class="field-stack">
+                <label class="field">
+                    <span>Feature Type</span>
+                    <div class="input mock">Whole Foods Market</div>
+                </label>
+                <label class="field">
+                    <span>Name</span>
+                    <input type="text" value="Whole Foods Market" class="input" disabled>
+                </label>
+                <label class="field">
+                    <span>Operator</span>
+                    <input type="text" value="Unknown" class="input" disabled>
+                </label>
+                <label class="field">
+                    <span>Address</span>
+                    <input type="text" value="5600 Magazine Street, New Orleans" class="input" disabled>
+                </label>
+                <label class="field">
+                    <span>Building</span>
+                    <input type="text" value="yes" class="input" disabled>
+                </label>
+            </section>
+
+            <section class="field field-hours">
+                <div class="field-heading">
+                    <span>Hours</span>
+                    <small>Inline accordion</small>
                 </div>
-                <div class="times-row">
-                    <input type="time" class="time-input" value="10:00">
-                    <span class="time-separator">to</span>
-                    <input type="time" class="time-input" value="14:00">
+                <button class="hours-summary" id="hoursToggle" aria-expanded="false" aria-controls="hoursPanel">
+                    <span id="hoursSummary">Mo-Fr 09:00-17:00; Sa-Su 10:00-14:00</span>
+                    <span class="chevron" aria-hidden="true"></span>
+                </button>
+                <div class="hours-panel" id="hoursPanel">
+                    <div class="panel-clip">
+                        <div class="panel-inner">
+                            <label class="checkbox-row">
+                                <input type="checkbox" id="open-247">
+                                <span>Open 24/7</span>
+                            </label>
+                            <div id="schedules-container" class="schedules"></div>
+                            <button class="add-btn" id="add-schedule" type="button">+ Add another schedule</button>
+                            <div class="output-area">
+                                <span class="output-label">Generated Tag</span>
+                                <div class="output-box" id="output-string">Mo-Fr 09:00-17:00; Sa-Su 10:00-14:00</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </section>
+
+            <section class="field field-payment">
+                <div class="field-heading">
+                    <span>Payment Types</span>
+                    <small>Accepted tender</small>
+                </div>
+                <div class="chip-row">
+                    <button type="button" class="chip active">Cash</button>
+                    <button type="button" class="chip active">Credit Card</button>
+                    <button type="button" class="chip">Mobile Pay</button>
+                    <button type="button" class="chip">EBT</button>
+                </div>
+                <button type="button" class="input add-chip">Add…</button>
+            </section>
+
+            <section class="field field-inline">
+                <span>Telephone</span>
+                <div class="compound-input">
+                    <input type="text" class="input" value="+1 504-899-9119">
+                    <button class="ghost-btn" type="button">×</button>
+                </div>
+            </section>
+
+            <section class="field field-inline">
+                <span>Branch</span>
+                <div class="compound-input">
+                    <input type="text" class="input" value="Arabella Station">
+                    <button class="ghost-btn" type="button">×</button>
+                </div>
+            </section>
+
+            <section class="field field-lock">
+                <span>Brand</span>
+                <div class="input" aria-disabled="true">Whole Foods Market <span class="lock">🔒</span></div>
+            </section>
+
+            <section class="field field-inline">
+                <span>Last Checked Date</span>
+                <div class="compound-input">
+                    <input type="date" class="input" value="2024-10-03">
+                    <button class="ghost-btn" type="button">⟳</button>
+                </div>
+            </section>
+
+            <section class="field field-inline">
+                <span>Website</span>
+                <div class="compound-input">
+                    <input type="url" class="input" value="https://www.wholefoodsmarket.com/stores/arabella" spellcheck="false">
+                    <button class="ghost-btn" type="button">⧉</button>
+                </div>
+            </section>
+
+            <section class="field field-radio">
+                <span>Wheelchair Access</span>
+                <div class="radio-column">
+                    <label><input type="radio" name="wheelchair" value="designated"> Designated</label>
+                    <label><input type="radio" name="wheelchair" value="yes" checked> Yes</label>
+                    <label><input type="radio" name="wheelchair" value="limited"> Limited</label>
+                    <label><input type="radio" name="wheelchair" value="no"> No</label>
+                </div>
+            </section>
+
+            <div class="audit-meta">
+                Last touched 18 months ago by user_21425661
             </div>
+        </aside>
 
-        </div>
-
-        <button class="add-btn" id="add-schedule">+ Add another schedule</button>
-
-        <div class="output-label">Generated Tag:</div>
-        <div class="output-box" id="output-string">Mo-Fr 09:00-17:00; Sa-Su 10:00-14:00</div>
+        <section class="map-panel" id="mapPanel">
+            <div class="map-sim"></div>
+        </section>
     </div>
 
+    <template id="schedule-template">
+        <div class="schedule-block">
+            <div class="schedule-heading">
+                Segment
+            </div>
+            <div class="days-row">
+                <button type="button" class="day-btn" data-day="Mo">Mo</button>
+                <button type="button" class="day-btn" data-day="Tu">Tu</button>
+                <button type="button" class="day-btn" data-day="We">We</button>
+                <button type="button" class="day-btn" data-day="Th">Th</button>
+                <button type="button" class="day-btn" data-day="Fr">Fr</button>
+                <button type="button" class="day-btn" data-day="Sa">Sa</button>
+                <button type="button" class="day-btn" data-day="Su">Su</button>
+            </div>
+            <div class="times-row">
+                <label>
+                    <span>From</span>
+                    <input type="time" class="time-input" data-time="start" value="08:00">
+                </label>
+                <span class="time-separator">to</span>
+                <label>
+                    <span>To</span>
+                    <input type="time" class="time-input" data-time="end" value="17:00">
+                </label>
+            </div>
+        </div>
+    </template>
+
+    <script src="index.js" defer></script>
 </body>
-<script src="index.js"></script>
 </html>
