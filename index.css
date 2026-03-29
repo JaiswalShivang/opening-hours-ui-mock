@@ -273,10 +273,6 @@ button {
     transition: border 0.2s ease, background 0.2s ease;
 }
 
-.hours-summary:hover {
-    border-color: var(--accent);
-}
-
 .chevron {
     width: 12px;
     height: 12px;
